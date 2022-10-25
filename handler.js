@@ -4,23 +4,22 @@ const ses = new AWS.SES({ region: 'us-west-2' });
 
 module.exports.hello = async (event) => {
   try {
-    
     const queryParams = event.queryStringParameters || {};
     const params = {
       Destination: {
-        ToAddresses: ['example@example.com'],
+        ToAddresses: ['wallace.preston@gmail.com'], // the email address you want to send to
       },
       Message: {
         Body: {
           Text: {
-            Data: 'this is a test email',
+            Data: 'This is a test email.',
           },
         },
         Subject: {
           Data: 'Test Email',
         },
       },
-      Source: 'example@example.com', // This can be any email address, the email you want to show as the "sender" when the email is received
+      Source: 'wallace.preston@gmail.com', // The email you want to show as the "sender" when the email is received.  This must be added as an identity via the AWS SES console and verified.
     };
     await ses.sendEmail(params).promise();
     return {
