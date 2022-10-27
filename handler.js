@@ -2,7 +2,7 @@
 const AWS = require('aws-sdk');
 const ses = new AWS.SES({ region: 'us-west-2' });
 
-module.exports.hello = async (event) => {
+module.exports.sendEmail = async (event) => {
   try {
     const queryParams = event.queryStringParameters || {};
 

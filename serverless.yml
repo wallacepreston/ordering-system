@@ -11,8 +11,8 @@ provider:
   region: us-west-2
 
 functions:
-  hello:
-    handler: handler.hello
+  send-email:
+    handler: handler.sendEmail
     events:
       - http:
           path: /
